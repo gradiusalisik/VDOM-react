@@ -1,7 +1,9 @@
-class OwnReact {
-  static createElement(...args) {
-    return [...args];
-  }
-}
+import createElement from "./createElement";
+import render from "./render";
+import Component from "./component";
 
-export default OwnReact;
+export default {
+  Component,
+  createElement,
+  render
+};
