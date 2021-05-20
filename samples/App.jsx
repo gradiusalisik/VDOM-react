@@ -1,14 +1,34 @@
 import OwnReact from "../src";
-import { getRussianAlphabethLetters } from "../src/utils/helpers";
+import { getRussianAlphabethLetters, shuffle } from "../src/utils/helpers";
+import ListLetter from "../src/components/ListLetter";
 
-const letters = getRussianAlphabethLetters();
+// eslint-disable-next-line react/prefer-stateless-function
+export default class App extends OwnReact.Component {
+  constructor() {
+    super();
+    this.state = {
+      letters: getRussianAlphabethLetters()
+    };
 
-const getItem = letter => <li>{letter}</li>;
+    this.handleClick = this.handleClick.bind(this);
+  }
 
-const App = (
-  <div>
-    <ul>{letters.map(letter => getItem(letter))}</ul>
-  </div>
-);
+  handleClick() {
+    const { letters } = this.state;
+    this.setState({
+      letters: shuffle(letters)
+    });
+  }
 
-export default App;
+  render() {
+    const { letters } = this.state;
+    return (
+      <div>
+        <button type="button" onClick={this.handleClick}>
+          Mix letters
+        </button>
+        <ListLetter letters={letters} />
+      </div>
+    );
+  }
+}

@@ -11,4 +11,8 @@ export default class Component {
     // eslint-disable-next-line no-underscore-dangle
     updateInstance(this.__internalInstance);
   }
+
+  render() {
+    return "";
+  }
 }

@@ -23,7 +23,7 @@ export default function updateDomProperties(dom, prevProps, nextProps) {
     });
 
   // Добавляем прослушку событий
-  Object.keys(prevProps)
+  Object.keys(nextProps)
     .filter(isEvent)
     .forEach(name => {
       dom.addEventListener(eventType(name), nextProps[name]);
