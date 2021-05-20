@@ -1,5 +1,14 @@
 import OwnReact from "../src";
+import { getRussianAlphabethLetters } from "../src/utils/helpers";
 
-const App = <h1 prop1="prop value">Hello, World!</h1>;
+const letters = getRussianAlphabethLetters();
+
+const getItem = letter => <li>{letter}</li>;
+
+const App = (
+  <div>
+    <ul>{letters.map(letter => getItem(letter))}</ul>
+  </div>
+);
 
 export default App;
