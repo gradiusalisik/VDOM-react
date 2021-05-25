@@ -30,6 +30,7 @@ export default function reconcile(parentDom, instance, element) {
     return instance;
   }
 
+  // Обновляем инстанс компонента
   instance.publicInstance.props = element.props;
   const childElement = instance.publicInstance.render();
   const oldChildInstance = instance.childInstance;
